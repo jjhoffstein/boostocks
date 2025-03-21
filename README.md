@@ -67,4 +67,42 @@ For any inquiries, please reach out to us at info@boostocks.com
 
 ---
 
-Built with 💙 for the next generation of investors. 
+Built with 💙 for the next generation of investors.
+
+## Deployment
+
+This project is deployed using Cloudflare Pages. The deployment is automated through GitHub Actions.
+
+### Requirements
+
+- Node.js version 18.18.0 or newer (required by Next.js 15+)
+
+### Setting up Cloudflare Pages deployment
+
+1. Create a Cloudflare Pages project
+2. Connect it to your GitHub repository
+3. Set build settings:
+   - Build command: `npm run build`
+   - Build output directory: `out`
+   - Node.js version: Select 18.18.0 or newer
+
+### Local Development
+
+```bash
+# Install dependencies
+npm install
+
+# Run the development server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+## Technologies Used
+
+- Next.js
+- React
+- Tailwind CSS
+- Cloudflare Pages
+- GitHub Actions 
