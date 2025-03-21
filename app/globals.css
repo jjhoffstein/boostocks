@@ -27,7 +27,7 @@
   }
 
   * {
-    @apply border-border;
+    /* Removing the problematic border-border class */
   }
 
   body {

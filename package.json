@@ -9,7 +9,12 @@
     "start": "next start",
     "lint": "next lint"
   },
-  "keywords": ["investing", "education", "fintech", "youth"],
+  "keywords": [
+    "investing",
+    "education",
+    "fintech",
+    "youth"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -21,6 +26,7 @@
     "@types/node": "latest",
     "@types/react-dom": "latest",
     "tailwindcss": "latest",
+    "@tailwindcss/postcss": "latest",
     "postcss": "latest",
     "autoprefixer": "latest",
     "eslint": "latest",

@@ -46,6 +46,9 @@ module.exports = {
           900: '#7c2d12',
           950: '#431407',
         },
+        border: '#e2e8f0',
+        background: '#ffffff',
+        foreground: '#0f172a',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
