@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Investing platform for young adults with parents' permission",
   "private": true,
+  "engines": {
+    "node": ">=18.18.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
