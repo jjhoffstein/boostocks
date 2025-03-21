@@ -1,0 +1,32 @@
+# Wrangler configuration for BooStocks Waitlist API
+name = "boostocks-waitlist-api"
+main = "functions/api/waitlist.ts"
+compatibility_date = "2023-11-01"
+
+# Enable Cloudflare Pages Functions
+[build]
+command = "npm run build"
+cwd = "."
+watch_dir = "functions"
+
+# Routes to match
+routes = [
+  { pattern = "boostocks.com/api/waitlist", zone_name = "boostocks.com" }
+]
+
+# Use D1 database
+[[d1_databases]]
+binding = "DB"
+database_name = "boostocks_waitlist"
+database_id = "placeholder-id-replace-with-real-id"
+
+# Setup environment variables
+[vars]
+ADMIN_EMAIL = "admin@boostocks.com"
+
+# Environment specific configurations
+[env.production]
+# Add production specific settings if needed
+
+[env.development]
+# For local development 

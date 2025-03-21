@@ -18,14 +18,13 @@ BooStocks is a modern web platform designed to make investing accessible, educat
 - Tailwind CSS for styling
 - Responsive design for all devices
 
-## Getting Started
+## Development
 
-### Prerequisites
+### Requirements
 
-- Node.js 18.0.0 or later
-- npm or yarn
+- Node.js version 18.18.0 or newer
 
-### Installation
+### Setup
 
 1. Clone the repository:
 ```bash
@@ -36,30 +35,84 @@ cd boostocks
 2. Install dependencies:
 ```bash
 npm install
-# or
-yarn install
 ```
 
 3. Run the development server:
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Deployment
+## Waitlist Backend
 
-The project is configured to deploy to Cloudflare Pages. The build command is `npm run build` and the output directory is `out`.
+The project includes a serverless backend for the waitlist functionality built with Cloudflare Workers and D1 database.
+
+### Setup Cloudflare Worker & D1 Database
+
+1. Install Wrangler CLI (if not already installed):
+```bash
+npm install -g wrangler
+```
+
+2. Login to Cloudflare:
+```bash
+wrangler login
+```
+
+3. Create a D1 database:
+```bash
+wrangler d1 create boostocks_waitlist
+```
+
+4. Update the `wrangler.toml` file with your database ID from the previous command.
+
+5. Apply database migrations:
+```bash
+wrangler d1 execute boostocks_waitlist --file .wrangler/d1/migrations/0000_initial_schema.sql
+```
+
+### Local Development
+
+Run the Cloudflare Worker locally:
+```bash
+npm run worker:dev
+```
+
+### Deployment
+
+To deploy the Cloudflare Worker:
+```bash
+wrangler deploy
+```
+
+## Deployment to Cloudflare Pages
+
+This application is configured for deployment with Cloudflare Pages.
+
+1. Connect your GitHub repository to Cloudflare Pages
+2. Use the following settings:
+   - Build command: `npm run build`
+   - Build output directory: `out`
+   - Node.js version: 18.18.0 or newer
+
+## Project Structure
+
+- `app/`: Main application code (Next.js)
+  - `components/`: React components
+  - `globals.css`: Global CSS styles
+- `functions/`: Cloudflare Functions
+  - `api/`: API endpoints
+- `.wrangler/`: Cloudflare configuration
+  - `d1/migrations/`: Database migrations
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
 
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Contact
 
@@ -67,42 +120,4 @@ For any inquiries, please reach out to us at info@boostocks.com
 
 ---
 
-Built with 💙 for the next generation of investors.
-
-## Deployment
-
-This project is deployed using Cloudflare Pages. The deployment is automated through GitHub Actions.
-
-### Requirements
-
-- Node.js version 18.18.0 or newer (required by Next.js 15+)
-
-### Setting up Cloudflare Pages deployment
-
-1. Create a Cloudflare Pages project
-2. Connect it to your GitHub repository
-3. Set build settings:
-   - Build command: `npm run build`
-   - Build output directory: `out`
-   - Node.js version: Select 18.18.0 or newer
-
-### Local Development
-
-```bash
-# Install dependencies
-npm install
-
-# Run the development server
-npm run dev
-
-# Build for production
-npm run build
-```
-
-## Technologies Used
-
-- Next.js
-- React
-- Tailwind CSS
-- Cloudflare Pages
-- GitHub Actions 
+Built with 💙 for the next generation of investors. 
