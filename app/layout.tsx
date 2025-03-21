@@ -1,19 +1,8 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter, Poppins } from 'next/font/google';
+import { Inter } from 'next/font/google';
 
-const inter = Inter({ 
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-});
-
-const poppins = Poppins({
-  weight: ['400', '500', '600', '700', '800'],
-  subsets: ['latin'],
-  variable: '--font-poppins',
-  display: 'swap',
-});
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'BooStocks - Investing for Young Adults',
@@ -28,9 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${poppins.variable} font-sans`}>
-        {children}
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }

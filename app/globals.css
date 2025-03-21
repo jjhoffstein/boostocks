@@ -2,51 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 196 100% 48%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 142 76% 45%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 24 95% 53%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 196 100% 48%;
-    --radius: 0.5rem;
-  }
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 255, 255, 255;
+}
 
-  * {
-    /* Removing the problematic border-border class */
-  }
-
-  body {
-    @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
 }
 
 @layer components {
   .hero-btn {
-    @apply bg-primary-600 text-white px-8 py-4 rounded-lg font-bold transform transition-all shadow-lg hover:shadow-xl hover:scale-105;
+    @apply bg-primary-600 text-white px-8 py-4 rounded-lg font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all;
   }
   
   .section-title {
-    @apply text-4xl md:text-5xl font-display font-bold text-primary-800 mb-6;
+    @apply text-4xl md:text-5xl font-bold text-primary-800 mb-6;
   }
   
   .feature-card {
