@@ -40,11 +40,17 @@ const WaitlistForm = () => {
         body: JSON.stringify({ email, name }),
       });
       
-      const data = await response.json();
-      
+      // Check if response is ok before trying to parse JSON
       if (!response.ok) {
-        throw new Error(data.error || 'Something went wrong');
+        const errorText = await response.text();
+        console.error('API error response:', errorText);
+        throw new Error(response.status >= 500 
+          ? 'Server error. Please try again later.' 
+          : 'Failed to join waitlist.');
       }
+      
+      // Only try to parse JSON if response is ok
+      const data = await response.json();
       
       setStatus('success');
       setEmail('');

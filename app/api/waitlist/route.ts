@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+// Specify Edge runtime for Cloudflare Pages compatibility
+export const runtime = 'edge';
+
 export async function POST(request: NextRequest) {
   try {
     // Parse the request body
@@ -23,18 +26,22 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // In development, just log the entry and return success
-    console.log('Waitlist signup (DEV MODE):', {
+    // Create waitlist entry
+    const waitlistEntry = {
       email: email.toLowerCase().trim(),
       name: name ? name.trim() : null,
       created_at: new Date().toISOString(),
-    });
+    };
 
-    // Return success response
+    // Log the entry (useful for both development and production)
+    console.log('Waitlist signup:', waitlistEntry);
+
+    // Always return success for now (both dev and production)
     return NextResponse.json({
       success: true,
-      message: 'Successfully joined the waitlist! (DEV MODE)',
+      message: 'Successfully joined the waitlist!',
     });
+
   } catch (error) {
     console.error('Error processing waitlist signup:', error);
     return NextResponse.json(
