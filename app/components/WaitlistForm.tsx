@@ -31,6 +31,7 @@ const WaitlistForm = () => {
     try {
       setStatus('submitting');
       
+      // Using relative path which works in both development and production
       const response = await fetch('/api/waitlist', {
         method: 'POST',
         headers: {
